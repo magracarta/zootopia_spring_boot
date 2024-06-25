@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ include file ="../header.jsp" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@ include file="../include/header.jsp" %>
 <%@ include file="section/mypage_info.jsp" %>
 
 
@@ -16,7 +16,7 @@
             				<div class="scroll">
             					<c:forEach items ="${contestList}" var="list">
 			                		<div class="contest">
-										<a href="zootopia.do?command=contestDetail&cseq=${list.cseq}">
+										<a href="contestDetail?cseq=${list.cseq}">
 				                    		<h3>${list.subject}</h3>
 				                    		<p>${list.content}</p>
 		                    			</a>
@@ -38,7 +38,7 @@
 		                	<div class="scroll">
             					<c:forEach items ="${contestmypetList}" var="list2">
 			                		<div class="contest">
-										<a href="zootopia.do?command=contestDetail&cseq=${list2.cseq}">
+										<a href="contestDetail?cseq=${list2.cseq}">
 				                    		<h3>${list2.subject}</h3>
 				                    		<p>${list2.content}</p>
 		                    			</a>
@@ -54,6 +54,6 @@
 		
 <%@ include file="css/mypage_css.jsp" %>
 <%@ include file="css/mycontest.jsp" %>
-<%@ include file="../footer.jsp" %>
+<%@ include file="../include/footer.jsp" %>
 
 		                    

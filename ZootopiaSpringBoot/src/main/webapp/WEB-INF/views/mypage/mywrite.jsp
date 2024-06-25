@@ -1,8 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ include file ="../header.jsp" %>
+<%@ include file ="../include/header.jsp" %>
 <%@ include file="section/mypage_info.jsp" %>
 
 
@@ -21,7 +20,7 @@
          <ul>
             <c:forEach var="post" items="${communityList}" varStatus="state">
             <li>
-               <a class="commudetail" href="zootopia.do?command=communityDetail&gseq=${post.gseq}">
+               <a class="commudetail" href="communityDetail?gseq=${post.gseq}">
                <c:choose>
                <c:when test="${empty communityList}">
                		<p>내가 등록한 글이 없습니다.</p>
@@ -50,7 +49,7 @@
 
 		
 	<jsp:include page="writepaging.jsp" flush="true">
-	  	<jsp:param name="url" value="zootopia.do?command=mywrite" />
+	  	<jsp:param name="url" value="mywrite" />
 	  	<jsp:param name="search" value="${search}" />
 	</jsp:include>
 		
@@ -60,7 +59,7 @@
 
 </form>
 											
- <script>			
+ <script>
 	let begin = ${allcnt - (paging.recordrow*(paging.currentPage-1))-1} +1;
  
 	document.querySelectorAll(".communityboard li").forEach((elem,index)=>{
@@ -76,4 +75,4 @@
 
 <%@ include file="css/mywrite_css.jsp" %>
 <%@ include file="css/mypage_css.jsp" %>
-<%@ include file ="../footer.jsp" %>
+<%@ include file ="../include/footer.jsp" %>

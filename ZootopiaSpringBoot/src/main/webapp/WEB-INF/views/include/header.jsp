@@ -32,7 +32,7 @@
 <div class="header-container">
 	<div class="logo-menu">
 		<div class="logo">
-			<a href="zootopia.do?command=main"><img src="images/logo.svg"></a>
+			<a href="main"><img src="/images/logo.svg"></a>
 		</div>
 		<nav class="navigation">
 			<ul>
@@ -66,12 +66,12 @@
 	<div class="login-menu">
 		<c:choose>
 			<c:when test="${empty loginUser}">
-				<a href="zootopia.do?command=loginform">Login</a>
-				<a href="zootopia.do?command=joinform">Join</a>
+				<a href="loginForm">Login</a>
+				<a href="joinform">Join</a>
 			</c:when>
 			<c:otherwise>
-				<a href="zootopia.do?command=mycontest">${loginUser.nickname}(${loginUser.userid})</a>
-				<a href="zootopia.do?command=logout">Logout</a>
+				<a href="mycontest">${loginUser.nickname}(${loginUser.userid})</a>
+				<a href="logout">Logout</a>
 			</c:otherwise>
 		</c:choose>
 	</div>

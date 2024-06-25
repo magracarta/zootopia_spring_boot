@@ -6,7 +6,7 @@ function confirmDelete(event) {
             event.preventDefault();
             if (confirm("정말 탈퇴하시겠습니까?")) {
                 alert("회원 탈퇴가 완료되었습니다");
-                window.location.href = "zootopia.do?command=index.jsp"; // 메인 페이지로 이동
+                window.location.href = "index.jsp"; // 메인 페이지로 이동
             }
         }
  function go_updateMember(){

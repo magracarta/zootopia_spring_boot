@@ -1,17 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ include file="../header.jsp" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@ include file="../include/header.jsp" %>
 <script src="script/mypage.js"></script>
 
 <div class="container">
         <h1 class="title">회원 정보 수정</h1>
-        <form method="post" class="update-form"  action="zootopia.do?command=modify" name="modifyForm" enctype="multipart/form-data">
+        <form method="post" class="update-form"  action="modify" name="modifyForm" enctype="multipart/form-data">
             <div class="form-group">
-                <label for="username">아이디</label>
+                <label for="userid">아이디</label>
                 <input type="text" id="userid" class="form-control" value="${loginUser.userid}" name="userid" readonly >
             </div>
             <div class="form-group">
-                <label for="password">비밀번호</label>
+                <label for="pwd">비밀번호</label>
                 <input type="password" id="pwd" class="form-control" value="${loginUser.pwd}" name="pwd">
             </div>
             <div class="form-group">
@@ -124,4 +123,4 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 <%@ include file="css/modify.jsp" %>
-<%@ include file="../footer.jsp" %>
+<%@ include file="../include/footer.jsp" %>

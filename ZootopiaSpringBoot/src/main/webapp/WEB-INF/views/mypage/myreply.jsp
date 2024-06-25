@@ -1,8 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ include file ="../header.jsp" %>
+<%@ include file ="../include/header.jsp" %>
 <%@ include file="section/mypage_info.jsp" %>
 
 <form class="myReplyform">
@@ -18,7 +17,7 @@
             				<div class="scroll">
             					<c:forEach items ="${myCntReplyList}" var="list">
 			                		<div class="myreply-content">
-										<a href="zootopia.do?command=contestDetail&cseq=${list.cseq}">
+										<a href="contestDetail?cseq=${list.cseq}">
 				                    		<h3>${list.content}</h3>
 				                    		<p><fmt:formatDate value="${list.createdate}" pattern="yy/MM/dd hh:mm:ss" /></p>
 		                    			</a>
@@ -40,7 +39,7 @@
 		                	<div class="scroll">
             					<c:forEach items ="${myComReplyList}" var="list2">
 			                		<div class="myreply-content">
-										<a href="zootopia.do?command=communityDetail&gseq=${list2.gseq}">
+										<a href="communityDetail?gseq=${list2.gseq}">
 				                    		<h3>${list2.content}</h3>
 				                    		<p><fmt:formatDate value="${list2.createdate}" pattern="yy/MM/dd hh:mm:ss" /></p>
 		                    			</a>
@@ -57,4 +56,4 @@
 
 <%@ include file="css/myreply_css.jsp" %>
 <%@ include file="css/mypage_css.jsp" %>
-<%@ include file="../footer.jsp" %>
+<%@ include file="../include/footer.jsp" %>

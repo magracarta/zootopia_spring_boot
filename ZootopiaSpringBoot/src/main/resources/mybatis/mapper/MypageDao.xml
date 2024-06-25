@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.himedia.zoo.dao.IMypageDao">
+    <select id="getMyContestList" resultType="com.himedia.zoo.dto.ContestDto">
+        select * from contest where userid = #{userid}
+    </select>
+
+    <select id="mypetList" resultType="com.himedia.zoo.dto.ContestPetDTO">
+        select * from contestpetiv_view where userid = #{userid}
+    </select>
+
+    <select id="getMypetContest" resultType="com.himedia.zoo.dto.ContestDto">
+        select * from contestpet_view where cseq = #{cseq}
+    </select>
+
+    <select id="contestClosedList" resultType="com.himedia.zoo.dto.ContestDto">
+        <![CDATA[
+        select * from contest where userid = #{userid} and lastdate < now()
+        ]]>
+    </select>
+
+    <select id="getMyContestCount" resultType="int">
+        select count(*) as cseq from ${tableName} where userid = #{userid} order by lastdate desc
+    </select>
+
+    <select id="getMyJoinedContestCount" resultType="int">
+        select count(*) as cpseq from ${tableName} where userid = #{userid}
+    </select>
+
+    <select id="getMyCommunityList" resultType="com.himedia.zoo.dto.CommunityVO">
+        select * from community where userid = #{userid} order by gseq desc limit #{limit} offset #{offset}
+    </select>
+
+    <select id="getMyWriteAllCount" resultType="int">
+        select count(*) as gseq from ${tableName} where userid = #{userid}
+    </select>
+</mapper>
