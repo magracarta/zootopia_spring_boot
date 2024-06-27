@@ -1,7 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ include file ="header.jsp" %>
-
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+pageEncoding="UTF-8"%>
+<%@ include file ="./include/header.jsp" %>
 <section id ="mainslide">
 	<div class="swiper mySwiper">
 	    <div class="swiper-wrapper">
@@ -147,5 +146,5 @@
 </section>
 
 
-<%@ include file ="footer.jsp" %>
+<%@ include file ="./include/footer.jsp" %>
 <%@ include file ="css/main_css.jsp" %>

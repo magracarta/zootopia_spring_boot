@@ -3,5 +3,15 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.himedia.zoo.dao.IContestDao">
-
+    <select id="getAllcount" resultType="_int">
+        select count(*) from ${param1}
+        where subject like concat('%',#{param3},'%') and useyn !='N' ${param2}
+    </select>
+    <select id="boardList" resultType="com.himedia.zoo.dto.ContestDto">
+        select * from contest where subject like concat('%',#{param1},'%') and useyn !='N' ${param2}
+        order by useyn desc , cseq desc  LIMIT #{param3.displayRow} OFFSET #{param3.startNum}
+    </select>
+    <select id="cpdList" resultType="com.himedia.zoo.dto.ContestPetDTO">
+        select * from contestpetiv_view  where cseq = ${param1} order by recommends desc
+    </select>
 </mapper>
