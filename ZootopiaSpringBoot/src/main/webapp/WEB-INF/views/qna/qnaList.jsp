@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="../header.jsp" %>
+<%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
@@ -16,44 +15,44 @@
                     <div class="coltitle createDate">작성일</div>
                     <div class="coltitle answer">답변여부</div>
                 </div>
-                <c:if test="${not empty qnaList}">
-                    <c:forEach items="${qnaList}" var="qnaVO">
+                <c:if test="${not empty QnaList}">
+                    <c:forEach items="${QnaList}" var="QnaDto">
                         <div class="low">
-                            <div class="coltitle num">${qnaVO.qseq}</div>
+                            <div class="coltitle num">${QnaDto.qseq}</div>
                             <div class="coltitle category">
 		                    <c:choose >
-			                    <c:when test="${qnaVO.category == 1}">[콘테스트 문의]</c:when>
-			                    <c:when test="${qnaVO.category == 2}">[자유게시판 문의]</c:when>
-			                    <c:when test="${qnaVO.category == 3}">[기타 문의]</c:when>
+			                    <c:when test="${QnaDto.category == 1}">[콘테스트 문의]</c:when>
+			                    <c:when test="${QnaDto.category == 2}">[자유게시판 문의]</c:when>
+			                    <c:when test="${QnaDto.category == 3}">[기타 문의]</c:when>
 			                    <c:otherwise></c:otherwise>
 			                </c:choose>
 			                </div>
                             <div class="coltitle subject">
-                                <a href="zootopia.do?command=qnaView&qseq=${qnaVO.qseq}">${qnaVO.subject}</a>
+                                <a href="qnaView?qseq=${QnaDto.qseq}">${QnaDto.subject}</a>
                             </div>
-                            <div class="coltitle author">${qnaVO.userid}</div>
-                            <div class="coltitle createDate"><fmt:formatDate value="${qnaVO.createdate}" type="date"/></div>
+                            <div class="coltitle author">${QnaDto.userid}</div>
+                            <div class="coltitle createDate"><fmt:formatDate value="${QnaDto.createdate}" type="date"/></div>
                             <div class="coltitle answer">
                                 <c:choose>
-                                    <c:when test="${empty qnaVO.reply}">NO</c:when>
+                                    <c:when test="${empty QnaDto.reply}">NO</c:when>
                                     <c:otherwise>YES</c:otherwise>
                                 </c:choose>
                             </div> 
                         </div>
                     </c:forEach>
                 </c:if>
-                <c:url var="action" value="zootopia.do?command=qnaList" />
+                <c:url var="action" value="" />
                 <div class="pagination">
                 </div>
                 <div class="btn-container" style="text-align: right;">
-                    <input type="button" value="질문하기" onClick="location.href='zootopia.do?command=writeQnaForm'" style="height:40px; font-weight:bold;"/>
+                    <input type="button" value="질문하기" onClick="location.href='writeQnaForm'" style="height:40px; font-weight:bold;"/>
                 </div>
             </div>
         </form>
     </article>
 </section>
 <jsp:include page="paging.jsp" flush="true">
-  <jsp:param name="url" value="zootopia.do?command=qnaList" />
+  <jsp:param name="url" value="qnaList" />
 </jsp:include>
-<%@ include file="/qna/css/qna_css.jsp" %>
-<%@ include file="../footer.jsp" %>
+<%@ include file="../qna/css/qna_css.jsp" %>
+

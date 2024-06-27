@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.himedia.zoo.dao.IQnaDao">
+
+    <select id="getAllCount" resultType="int">
+        SELECT count(*) FROM qnareply WHERE subject LIKE CONCAT('%', #{key}, '%')
+    </select>
+    
+    <select id="getQnaList" resultType="com.himedia.zoo.dto.QnaDto">
+        select * from qnareply order by qseq desc limit #{paging.displayRow}  offset #{paging.beginPage}
+    </select>
+
+</mapper>

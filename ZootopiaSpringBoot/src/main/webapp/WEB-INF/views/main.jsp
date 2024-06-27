@@ -1,12 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ include file ="header.jsp" %>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <section id ="mainslide">
 	<div class="swiper mySwiper">
 	    <div class="swiper-wrapper">
 	      <div class="swiper-slide">
-	       <a href="zootopia.do?command=contestBoard&category=all&pagenum=1&search=">
+	       <a href="contestBoard&category=all&pagenum=1&search=">
 	      	<div class="banner-01 banner">
 	      		<img src="images/banner_1.png">
 	      		<div class="title">
@@ -17,7 +14,7 @@
 	      	</a>
 	      </div>
 	       <div class="swiper-slide">
-	       <a href="zootopia.do?command=communityBoard">
+	       <a href="communityBoard">
 	      	<div class="banner-03 banner">
 	      		<img src="images/banner_3.png">
 	      		<div class="title">
@@ -57,7 +54,7 @@
 		<c:forEach items="${contestList}" var="list">
 			<li>
 				
-				<a href="zootopia.do?command=contestcount&cseq=${list.cseq}&contestDetailCount=1">
+				<a href="contestcount&cseq=${list.cseq}&contestDetailCount=1">
 					<div class="img-box">
 						<c:if test="${list.cpdList[0].saveimage != null}">
 							<img src="images/${list.cpdList[0].saveimage}">
@@ -100,7 +97,7 @@
 		</ul>
 	</div>
 	<div class="button-wrap">
-		<a class="moreBtn" href="zootopia.do?command=contestBoard&category=all&pagenum=1&search=">더 많은 콘테스트 보기</a>	
+		<a class="moreBtn" href="contestBoard&category=all&pagenum=1&search=">더 많은 콘테스트 보기</a>
 	</div>
 </section>
 
@@ -121,7 +118,7 @@
             <c:if test="${commList.size() == 0}"><li class="no-data">최근 추가된 내용이 없습니다....</li></c:if>
             <c:forEach var="post" items="${commList}" varStatus="state">
             <li>
-               <a class="" href="zootopia.do?command=communityDetail&gseq=${post.gseq}">
+               <a class="" href="communityDetail&gseq=${post.gseq}">
                <span class="num">${state.index+1}</span>      
                <span class="subject">
                   <c:choose>
@@ -142,10 +139,9 @@
          </ul>
   </div>
 <div class="button-wrap">
-		<a class="moreBtn" href="zootopia.do?command=communityBoard">더 많은 게시글 보기</a>	
+		<a class="moreBtn" href="communityBoard">더 많은 게시글 보기</a>
 	</div>
 </section>
 
 
-<%@ include file ="footer.jsp" %>
 <%@ include file ="css/main_css.jsp" %>
