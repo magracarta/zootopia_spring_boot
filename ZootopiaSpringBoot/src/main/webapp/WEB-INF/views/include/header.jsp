@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -25,6 +25,42 @@
 <script src="script/community.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+	<script type="text/javascript">
+		$(function(){
+			$('#fileimage').change(function(){
+				var fileName = $(this).val().split('\\').pop();
+				$('#filename').text(fileName);
+			});
+
+			$('#myButton').click(function(){
+				var formselect = $("#fileupForm")[0];	// 지목된 폼을 변수에 저장
+				var formdata = new FormData(formselect);	// 전송용 폼객체에 폼과 안의 데이터(이미지)를 저장
+				$.ajax({	//
+					url:"<%=request.getContextPath() %>/fileup",
+					type:"post",
+					enctype:"multipart/form-data",
+					async:false,
+					data:formdata,
+					timeout:10000,
+					contentType:false,
+					processData:false,
+
+					success:function(data) {	// controller 에서 리턴된 해시맵이 data 로 전달됩니다
+						if(data.STATUS == 1){
+							$("#filename").append("<div>" + data.SAVEIMAGE + "</div>");
+							$("#image").val(data.IMAGE);
+							$("#saveimage").val(data.SAVEIMAGE);
+							$("#filename").append("<img src='images/" + data.SAVEIMAGE + "'height='150'/>");
+						}
+					},
+					error:function() {
+						alert("실패");
+					}
+				});
+			});
+		});
+	</script>
+
 </head>
 <body>
 
@@ -32,7 +68,7 @@
 <div class="header-container">
 	<div class="logo-menu">
 		<div class="logo">
-			<a href="zootopia.do?command=main"><img src="images/logo.svg"></a>
+			<a href="/"><img src="/images/logo.svg"></a>
 		</div>
 		<nav class="navigation">
 			<ul>
@@ -62,16 +98,16 @@
 		</nav>
 	
 	</div>
-	
+
 	<div class="login-menu">
 		<c:choose>
 			<c:when test="${empty loginUser}">
-				<a href="zootopia.do?command=loginform">Login</a>
-				<a href="zootopia.do?command=joinform">Join</a>
+				<a href="loginform">Login</a>
+				<a href="joinform">Join</a>
 			</c:when>
 			<c:otherwise>
-				<a href="zootopia.do?command=mycontest">${loginUser.nickname}(${loginUser.userid})</a>
-				<a href="zootopia.do?command=logout">Logout</a>
+				<a href="mypage">${loginUser.nickname}(${loginUser.userid})</a>
+				<a href="logout">Logout</a>
 			</c:otherwise>
 		</c:choose>
 	</div>

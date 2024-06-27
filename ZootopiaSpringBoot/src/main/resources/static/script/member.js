@@ -13,20 +13,20 @@ function loginCheck() {
 	}
 }
 
-
 function idcheck() {
-	
+
 	if(document.joinForm.userid.value==""){
 		alert("아이디를 입력하고 중복체크를 진행하세요");
 		document.joinForm.userid.focus();
 		return;
 	}
-	var url = "zootopia.do?command=idcheckform&userid=" + document.joinForm.userid.value;
+	var url = "idcheckform?userid=" + document.joinForm.userid.value;
 	var opt = "toolbar=no, menubar=no, resizable=no, width=500, height=250, scrollbars=no";
-	
+
 	window.open(url, "idcheck", opt);
-	
+
 }
+
 
 
 function nicknamecheck() {
@@ -36,7 +36,7 @@ function nicknamecheck() {
 		document.joinForm.nickname.focus();
 		return;
 	}
-	var url = "zootopia.do?command=nicknamecheckform&nickname=" + document.joinForm.nickname.value;
+	var url = "nicknamecheckform?nickname=" + document.joinForm.nickname.value;
 	var opt = "toolbar=no, menubar=no, resizable=no, width=500, height=250, scrollbars=no";
 	
 	window.open(url, "nicknamecheck", opt);

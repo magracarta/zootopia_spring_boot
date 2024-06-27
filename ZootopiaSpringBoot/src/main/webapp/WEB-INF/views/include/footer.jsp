@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 
 </div>
 </div>
@@ -7,13 +7,13 @@
 	<div class="wrapper">
 		<div class="left">
 			<div class="logo-wrapper">
-				<a href="zootopia.do?command=main"><img src="images/logo.svg"></a>
+				<a href="zootopia.do?command=main"><img src="/images/logo.svg"></a>
 				<p>대한민국 최고의 반려동물 커뮤니티</p>
 			</div>
 			<div class="admin-info">
 				<p>고객 센터</p>
 				<span>000-000-0000</span>
-				<a href="zootopia.do?command=admin">admin<img src="images/Arrow 1.png"></a>
+				<a href="zootopia.do?command=admin">admin<img src="/images/Arrow 1.png"></a>
 			</div>
 		</div>
 		

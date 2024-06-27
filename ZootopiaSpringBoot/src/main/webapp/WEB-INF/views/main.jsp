@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file ="header.jsp" %>
+<%@ include file ="include/header.jsp" %>
 
 <section id ="mainslide">
 	<div class="swiper mySwiper">
 	    <div class="swiper-wrapper">
 	      <div class="swiper-slide">
-	       <a href="zootopia.do?command=contestBoard&category=all&pagenum=1&search=">
+	       <a href="contestBoard?category=all&pagenum=1&search=">
 	      	<div class="banner-01 banner">
-	      		<img src="images/banner_1.png">
+	      		<img src="/images/banner_1.png">
 	      		<div class="title">
 	      			<h1>우리 동물 이쁘죠? 자랑합니다!</h1>
 		      		<span>다함께 즐기는 우리만의 콘테스트를 지금 열어보아요.</span>
@@ -17,9 +17,9 @@
 	      	</a>
 	      </div>
 	       <div class="swiper-slide">
-	       <a href="zootopia.do?command=communityBoard">
+	       <a href="communityBoard">
 	      	<div class="banner-03 banner">
-	      		<img src="images/banner_3.png">
+	      		<img src="/images/banner_3.png">
 	      		<div class="title">
 	      			<h1>우리집 멍뭉이가 걱정입니다.</h1>
 		      		<span>자유게시판에서 우리집 동물의 자랑, 고민, 잡담을 함께 나눠보아요!</span>
@@ -28,9 +28,9 @@
 	      	</a>
 	      </div>
 	      <div class="swiper-slide">
-	      <a href="zootopia_mini/zootopia.do?command=qnaList">
+	      <a href="zootopia_mini/qnaList">
 	      	<div class="banner-02 banner">
-	      		<img src="images/banner_2.png">
+	      		<img src="/images/banner_2.png">
 	      		<div class="title">
 	      			<h1>QNA</h1>
 		      		<span>관리자에게 궁금한 부분들을 질문에 보아요!</span>
@@ -57,7 +57,7 @@
 		<c:forEach items="${contestList}" var="list">
 			<li>
 				
-				<a href="zootopia.do?command=contestcount&cseq=${list.cseq}&contestDetailCount=1">
+				<a href="contestcount?cseq=${list.cseq}&contestDetailCount=1">
 					<div class="img-box">
 						<c:if test="${list.cpdList[0].saveimage != null}">
 							<img src="images/${list.cpdList[0].saveimage}">
@@ -100,7 +100,7 @@
 		</ul>
 	</div>
 	<div class="button-wrap">
-		<a class="moreBtn" href="zootopia.do?command=contestBoard&category=all&pagenum=1&search=">더 많은 콘테스트 보기</a>	
+		<a class="moreBtn" href="contestBoard?category=all&pagenum=1&search=">더 많은 콘테스트 보기</a>
 	</div>
 </section>
 
@@ -121,7 +121,7 @@
             <c:if test="${commList.size() == 0}"><li class="no-data">최근 추가된 내용이 없습니다....</li></c:if>
             <c:forEach var="post" items="${commList}" varStatus="state">
             <li>
-               <a class="" href="zootopia.do?command=communityDetail&gseq=${post.gseq}">
+               <a class="" href="communityDetail?gseq=${post.gseq}">
                <span class="num">${state.index+1}</span>      
                <span class="subject">
                   <c:choose>
@@ -142,10 +142,10 @@
          </ul>
   </div>
 <div class="button-wrap">
-		<a class="moreBtn" href="zootopia.do?command=communityBoard">더 많은 게시글 보기</a>	
+		<a class="moreBtn" href="communityBoard">더 많은 게시글 보기</a>
 	</div>
 </section>
 
 
-<%@ include file ="footer.jsp" %>
+<%@ include file ="include/footer.jsp" %>
 <%@ include file ="css/main_css.jsp" %>

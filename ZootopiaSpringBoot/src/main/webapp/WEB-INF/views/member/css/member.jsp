@@ -8,13 +8,14 @@ span{
    	margin:0 auto;
    	margin-top:50px;
    	width:471px;
-   	height:auto;
+   	height:1600px;
    	border: 1px solid #E5E5E5;
    	border-radius: 5px;
    	display:flex;
    	justify-content:center;
    	align-items:center;
    	box-sizing:border-box;
+    flex-direction:column;
 }
 .container h2{
 	margin-top: 50px;
@@ -117,22 +118,12 @@ input[type="text"]:focus, input[type="password"]:focus {
 
 .container .field_pet{
 	display:flex;
+    flex-direction:column;
 	justify-content:space-between;
 	margin-top:50px;
 }
-.container .field_pet .field_left{
-	display:flex;
-	flex-direction:column;
-}
-.container .field_pet .field_right{
-	display:flex;
-	flex-direction:column;
-	margin-left:20px;
-	margin-bottom:30px;
-	justify-content:space-between;
-	
-}
-.container .field_pet .field_right select{
+
+.container .field_pet select{
 	border-top:0;
 	border-left:0;
 	border-right:0;
@@ -145,24 +136,7 @@ img{
 	width:138px;
 	height:138px;
 }
-.container .field_pet .field_left input[type='file']{
-	display:none;
-}
-.custom_photo_upload {
-	display: inline-block;
-	background:white;
-	color: black;
-	border: 1px solid black;
-	padding: 5px 5px;
-	cursor: pointer;
-	text-align:center;
-}
-.custom_photo_upload:hover {
-	background-color: none;
-}
-.file_name{
-	margin-left:10px;
-}
+
 .id_check_form {
 	display:flex;
 	flex-direction:column;
@@ -191,14 +165,29 @@ img{
 	border-radius:10px 10px 10px 10px;
 	padding:3px 5px;
 }
+.
+.option_info{
+    color:#555;
+}
+.file-upload input[type="file"] {
+    display: none;
+}
+
+.file-upload label {
+    display: inline-block;
+    padding: 10px 20px;
+    color: black;
+    background-color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.file-upload label:hover {
+    background-color: #0056b3;
+}
+
+
+
 </style>
 
-<script>
-if(document.getElementById('photoinput')){
-	document.getElementById('photoinput').addEventListener('change', function() {
-    	var fileName = this.value.split('\\').pop(); 
-    	document.getElementById('photoinput').textContent = fileName;
-	});
-	
-}
-</script>

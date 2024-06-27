@@ -13,7 +13,7 @@
 <body>
 <div class="id_check_form">
 	<h2>ID 중복확인</h2>
-	<form method="post" name="idCheckForm" action="zootopia.do?command=idcheckform">
+	<form name="idCheckForm" action="idcheckform">
 		User ID : <input type="text" name="userid" value="${userid}" >
    		<input type="submit" value="검색"> <br><br><br>
 	</form>
