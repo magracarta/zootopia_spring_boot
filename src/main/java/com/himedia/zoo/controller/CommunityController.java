@@ -35,12 +35,15 @@ public class CommunityController {
         return "community/community_board";
     }
 
-    @GetMapping("/writeCommunityForm")
+
+    //write관련 확인 후 수정 작업 필
+
+    /*@GetMapping("/writeCommunityForm")
     public String writeCommunityForm( HttpServletRequest request, Model model) {
         String kindList[] = { "고민", "자랑", "잡담" };
         model.addAttribute("kindList", kindList);
         return "community/community_write";
-    }
+    }*/
 
     /*@PostMapping("/writeCommunity")
     public String writeCommunity(@ModelAttribute("dto") @Valid CommunityVO communityvo,
@@ -75,12 +78,8 @@ public class CommunityController {
     }
 
     @PostMapping("/deleteCommunity")
-    public String deleteCommunity(HttpServletRequest request, Model model, @RequestParam("gseq") int gseq) {
-        HttpSession session = request.getSession();
-        if(session.getAttribute("loginUser") == null) {
-            return "member/loginForm";
-        }else
-            cs.deleteBoard(gseq);
+    public String deleteCommunity(@RequestParam("gseq") int gseq) {
+        cs.deleteBoard(gseq);
         return "redirect:/community_board;";
     }
 
