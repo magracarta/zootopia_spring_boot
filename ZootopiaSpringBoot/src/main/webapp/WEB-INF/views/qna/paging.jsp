@@ -11,9 +11,9 @@
 		<a class="prevBtn" href="<%=url%>&pagenum=${paging.firstnum-paging.pagecnt}"><img src="images/arrow.svg"></a>
 		</c:if>
 		<div class="pagenation-wrapper">
-			<c:forEach begin="${paging.firstnum}" end="${paging.lastnum}" var="idx" varStatus="state">
+			<c:forEach begin="${paging.beginPage}" end="${paging.endPage}" var="idx" varStatus="state">
 			<c:choose>
-				<c:when test="${idx == paging.currentPage}">
+				<c:when test="${idx == paging.page}">
 					<span>${idx}</span>
 				</c:when>
 				<c:otherwise>
@@ -24,7 +24,7 @@
 			</c:forEach>
 		</div>
 		<c:if test="${paging.next == true}">
-		<a  class="nextBtn"  href="<%=url%>&pagenum=${paging.lastnum+1}"><img src="images/arrow.svg"></a>
+		<a  class="nextBtn"  href="<%=url%>&pagenum=${paging.endPage+1}"><img src="images/arrow.svg"></a>
 		</c:if>
 	</div>
 	

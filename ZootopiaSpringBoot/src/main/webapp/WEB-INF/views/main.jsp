@@ -56,7 +56,7 @@
 		<c:if test="${contestList.size() == 0}"><li class="no-data">최근 추가된 내용이 없습니다....</li></c:if>
 		<c:forEach items="${contestList}" var="list">
 			<li>
-				
+
 				<a href="contestcount?cseq=${list.cseq}&contestDetailCount=1">
 					<div class="img-box">
 						<c:if test="${list.cpdList[0].saveimage != null}">
