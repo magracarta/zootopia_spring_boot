@@ -37,12 +37,5 @@ public class QnaController {
         return mav;
     }
 
-    @PostMapping("/qnaView")
-    public ModelAndView QnaView(@RequestParam(qseq)int qseq) {
-        ModelAndView mav = new ModelAndView();
-        mav.addObject("qnaView", qs.getQna(qseq));
-        mav.setViewName("qna/qnaView");
-        return mav;
-    }
 
 }

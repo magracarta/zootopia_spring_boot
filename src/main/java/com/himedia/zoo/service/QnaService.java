@@ -57,8 +57,5 @@ public class QnaService {
 
         return result;
     }
-
-    public Object getQna(int qseq) {
-        
-    }
+    
 }
