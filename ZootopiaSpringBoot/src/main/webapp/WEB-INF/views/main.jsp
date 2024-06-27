@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file ="header.jsp" %>
+<%@include file="include/header.jsp"%>>
 
 <section id ="mainslide">
 	<div class="swiper mySwiper">
@@ -142,10 +142,10 @@
          </ul>
   </div>
 <div class="button-wrap">
-		<a class="moreBtn" href="zootopia.do?command=communityBoard">더 많은 게시글 보기</a>	
+		<a class="moreBtn" href="communityBoard">더 많은 게시글 보기</a>
 	</div>
 </section>
 
 
-<%@ include file ="footer.jsp" %>
+<%@include file="include/footer.jsp"%>>
 <%@ include file ="css/main_css.jsp" %>

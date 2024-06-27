@@ -1,12 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="zootopia_mini.zootopia.controller.dto.CommunityVO" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ include file="/header.jsp" %>
-<%@ include file="/community/css/community_css.jsp" %>
+<%@ include file="css/community_css.jsp" %>
 
 
 <article>
-    <form class="communityform" name="updateForm" action="zootopia.do?command=communityUpdate" method="post">
+    <form class="communityform" name="updateForm" action="updateCommunityForm" method="post">
         <div class="form">자유게시판 수정</div>
         <div class="detail">
            <label class="writer">작성자</label>
@@ -32,7 +30,7 @@
         <input type="hidden" name="gseq" value="${communityVO.gseq}">
         <div class="btn">   
             <input type="button" class="button3" value="수정완료" onclick="updateCommunity()">
-            <input type="button" class="button4" value="취소" onClick="location.href='zootopia.do?command=communityDetail&gseq=${communityVO.gseq}'">
+            <input type="button" class="button4" value="취소" onClick="location.href='communityDetail?gseq=${communityVO.gseq}'">
         </div>
     </form>
 
@@ -40,5 +38,3 @@
 
 
 
-
-<%@ include file="/footer.jsp" %>
