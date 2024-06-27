@@ -7,5 +7,9 @@
     <select id="getAllCount" resultType="int">
         SELECT count(*) FROM qnareply WHERE subject LIKE CONCAT('%', #{key}, '%')
     </select>
+    
+    <select id="getQnaList" resultType="com.himedia.zoo.dto.QnaDto">
+        select * from qnareply order by qseq desc limit #{paging.displayRow}  offset #{paging.beginPage}
+    </select>
 
 </mapper>
