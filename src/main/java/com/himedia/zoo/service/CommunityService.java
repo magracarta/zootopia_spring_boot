@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.HashMap;
 import java.util.List;
@@ -74,10 +75,13 @@ public class CommunityService {
         cdao.increaseViewCount(gseq);
     }
 
-    /*public void updateCommunity(CommunityVO communityVO) {
-        cdao.updateCommunity(communityVO);
+    public void updateCommunity(int gseq) {
+        cdao.updateCommunity(gseq);
+    }
 
-    }*/
+    public int updateRecommendations(int gseq) {
+        return cdao.updateRecommendations(gseq);
 
+    }
 
 }

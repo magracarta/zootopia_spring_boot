@@ -29,23 +29,21 @@ function updateCommunity() {
 
 
 $(document).ready(function() {
-    $(".recommendButton").click(function() {
-        var gseq = document.querySelector(".recommendButton").dataset.gesq;
+    $('#recommendButton').click(function() {
+        var gseq = $('#gseq').val(); // gseq 값을 가져와서 사용할 수 있음 (HTML 페이지에서 input 또는 hidden으로 값을 설정)
 
-        if (confirm("정말로 추천하시겠습니까?")) {
-            $.ajax({
-                url: "communityRecommands",
-                type: "POST",
-                data: { gseq: gseq },
-                success: function(data) {
-                    var recommends = data.recommends;
-                    $(".recommandWrap").text("추천 수[" + recommends + "]");
-                },
-                error: function(xhr, status, error) {
-                    console.error("AJAX request failed: " + error);
-                }
-            });
-        }
+        $.ajax({
+            type: 'POST',
+            url: '/recommendation',
+            data: { gseq: gseq },
+            success: function(response) {
+                var newRecommends = response.recommends;
+                $('#recommendsCount').text(newRecommends); // 추천 수 업데이트
+            },
+            error: function(xhr, status, error) {
+                console.error('Error: ' + error);
+            }
+        });
     });
 });
 
@@ -75,8 +73,7 @@ function increaseViewCount(gseq) {
 function increaseViewCountAndRedirect(gseq) {
     increaseViewCount(gseq);
 
-    // 조회수 증가 요청 완료 후 페이지 이동
-    window.location.href = 'communityDetail?gseq=' + gseq; // 이 부분의 URL을 프로젝트에 맞게 수정해야 합니다.
+    window.location.href = 'communityDetail?gseq=' + gseq;
 }
 
 
@@ -96,7 +93,7 @@ function increaseViewCountAndRedirect(gseq) {
     
 function deleteCommunityReply(grseq, gseq) {
     if (confirm("정말로 삭제하시겠습니까?")) {
-        location.href = 'zootopia.do?command=deleteCommunityReply&grseq=' + grseq + '&gseq=' + gseq;
+        location.href = 'deleteCommunityReply?grseq=' + grseq + '&gseq=' + gseq;
     }
 
 }

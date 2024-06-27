@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/zootopia_spring_boot.iml" filepath="$PROJECT_DIR$/.idea/zootopia_spring_boot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ZootopiaSpringBoot.iml" filepath="$PROJECT_DIR$/.idea/modules/ZootopiaSpringBoot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ZootopiaSpringBoot.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ZootopiaSpringBoot.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ZootopiaSpringBoot.test.iml" filepath="$PROJECT_DIR$/.idea/modules/ZootopiaSpringBoot.test.iml" />
     </modules>
   </component>
 </project>

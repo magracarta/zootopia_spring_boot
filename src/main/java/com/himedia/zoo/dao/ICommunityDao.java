@@ -22,6 +22,10 @@ public interface ICommunityDao {
 
     void increaseViewCount(int gseq);
 
+    void updateCommunity(int gseq);
+
+    int updateRecommendations(int gseq);
+
 /*
     void updateCommunity(CommunityVO communityVO);
 */

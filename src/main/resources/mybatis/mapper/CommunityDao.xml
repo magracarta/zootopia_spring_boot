@@ -39,11 +39,17 @@
         WHERE gseq = #{gseq}
     </update>
 
-    <!--<update id="updateCommunity" parameterType="CommunityVO">
+    <update id="updateCommunity" parameterType="com.himedia.zoo.dto.CommunityVO">
         UPDATE community
         SET subject = #{subject},
         content = #{content}
         WHERE gseq = #{gseq}
-    </update>-->
+    </update>
+
+    <update id="updateRecommendations" parameterType="int">
+        UPDATE community
+        SET recommends = recommends + 1
+        WHERE gseq = #{gseq}
+    </update>
 
 </mapper>

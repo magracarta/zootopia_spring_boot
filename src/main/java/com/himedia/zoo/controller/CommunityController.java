@@ -7,15 +7,13 @@ import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.HashMap;
 import java.util.List;
-
+ 
 @Controller
 public class CommunityController {
 
@@ -43,7 +41,7 @@ public class CommunityController {
 
     /*@PostMapping("/writeCommunity")
     public String writeCommunity(@ModelAttribute("dto") @Valid CommunityVO communityvo,
-                                    BindingResult result, Model model, HttpServletRequest request ){
+                                 BindingResult result, Model model, HttpServletRequest request ){
         String url = "community/community_write";
         String kindList[] = { "고민", "자랑", "잡담"};
         HttpSession session = request.getSession();
@@ -63,7 +61,7 @@ public class CommunityController {
             url = "redirect:/communityBoard";
         }
         return url;
-    }*/
+    }*/ //membervo 없어서 닫아둠
 
     @GetMapping("/communityDetail")
     public ModelAndView communityDetail( @RequestParam("gseq") int gseq ) {
@@ -90,7 +88,7 @@ public class CommunityController {
         return "View count increased successfully for post with gseq: " + gseq;
     }
 
-    /*@PostMapping("/updateCommunityForm")
+    @PostMapping("/updateCommunityForm")
     public ModelAndView updateCommunityForm(@RequestParam("gseq") int gseq) {
         ModelAndView mav = new ModelAndView();
         mav.addObject("communityVO", cs.getCommunity(gseq)); // communityService에서 게시글 정보 가져오기
@@ -99,10 +97,17 @@ public class CommunityController {
     }
 
     @PostMapping("/updateCommunity")
-    public String updateCommunity(CommunityVO communityVO, Model model) {
-        cs.updateCommunity(communityVO); // 게시글 업데이트 서비스 호출
+    public String updateCommunity(@RequestParam("gseq") int gseq) {
+        cs.updateCommunity(gseq); // 게시글 업데이트 서비스 호출
         return "redirect:/communityBoard"; // 수정 완료 후 상세 페이지로 리다이렉션
-    }*/
+    }
 
+    @PostMapping("/recommendation")
+    @ResponseBody
+    public String updateRecommendations(@RequestParam("gseq") int gseq) {
+        int newRecommends = cs.updateRecommendations(gseq);
 
+        // 직접 문자열로 JSON 형식을 생성하여 반환
+        return "{\"recommends\": " + newRecommends + "}";
+    }
 }
