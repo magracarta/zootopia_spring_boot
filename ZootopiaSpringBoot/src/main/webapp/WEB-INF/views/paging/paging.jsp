@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!-- 페이지네이션, 검색 -->
@@ -7,30 +7,21 @@
    String search = request.getParameter("search");
 %>
 	<div class="pagenation-container">
+		<div class="prevBtn_wrap"></div>
 		<c:if test="${paging.prev == true &&  paging.pageAllcount > paging.pagecnt }">
 		<a class="prevBtn" href="<%=url%>&pagenum=${paging.firstnum-paging.pagecnt}"><img src="images/arrow.svg"></a>
 		</c:if>
 		<div class="pagenation-wrapper">
-			<c:forEach begin="${paging.firstnum}" end="${paging.lastnum}" var="idx" varStatus="state">
-			<c:choose>
-				<c:when test="${idx == paging.currentPage}">
-					<span>${idx}</span>
-				</c:when>
-				<c:otherwise>
-					<a href="<%=url%>&pagenum=${idx}">${idx}</a>
-				</c:otherwise>
-			</c:choose>
-			
-			</c:forEach>
+
 		</div>
-		<c:if test="${paging.next == true}">
-		<a  class="nextBtn"  href="<%=url%>&pagenum=${paging.lastnum+1}"><img src="images/arrow.svg"></a>
-		</c:if>
+		<div class="nextBtn_wrap"></div>
+
+
 	</div>
 	
 	<div class="serach-form">
 		<form name="search" method="get">
-			<input type="hidden" name="command" value="contestBoard">
+			<input type="hidden" name="category" value="">
 			<input type="hidden" name="pagenum" value="1">
 			<input type="text" name="search" value="${search}">
 			<input type="submit" value="검색">

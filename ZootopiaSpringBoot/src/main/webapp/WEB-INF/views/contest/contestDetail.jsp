@@ -1,8 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ include file ="/header.jsp" %>
-<%@ include file ="css/content_css.jsp" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 
+<%@ include file ="../include/header.jsp" %>
+<%@ include file ="css/content_css.jsp" %>
 
 <div class="contest contest_detail">
 	<div class="title-wrapper">
@@ -188,7 +187,7 @@
 				
 				
 			</ul>
-			<jsp:include page="/paging/paging.jsp" flush="true" >
+			<jsp:include page="./paging/paging.jsp" flush="true" >
 				<jsp:param name="url" value="zootopia.do?command=contestDetail&cseq=${contest_detail.cseq}&index=${index}" />
 				<jsp:param name="search" value="${search}" />
 			</jsp:include>
@@ -197,24 +196,24 @@
 
 
 </div>
-<%@ include file ="/footer.jsp" %>
+<%@ include file ="../include/footer.jsp" %>
 <style>
 form[name="search"] { display:none; }
 </style>
 
 
 <!-- 콘테스트 펫 생성폼 -->
-<jsp:include page="/contest/contestaddform.jsp" flush="true" >
+<jsp:include page="./contest/contestaddform.jsp" flush="true" >
 	<jsp:param name="command" value="insertContestPet" />
 	<jsp:param name="className" value="createForm_contaienr" />
 </jsp:include>
 <!-- 콘테스트 펫 수정폼 -->
-<jsp:include page="/contest/contestUpdatepetform.jsp" flush="true" >
+<jsp:include page="./contest/contestUpdatepetform.jsp" flush="true" >
 	<jsp:param name="command" value="updateContestPet" />
 	<jsp:param name="className" value="updateForm_contaienr" />
 </jsp:include>
 
-<script src="contest/script/contestForm.js"></script>
+<script src="script/contestForm.js"></script>
 
 
 

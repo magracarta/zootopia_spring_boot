@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+
 <style>
 .section-common { padding:130px 0 0; }
 .section-common h2 { font-size:30px; color:#000; padding-bottom:15px; font-weight: 600; }
@@ -35,8 +35,8 @@ font-weight: 700; }
 
 .skiptext { overflow: hidden; white-space: normal; text-overflow: ellipsis;  display: -webkit-box !important;
   -webkit-line-clamp: 2; -webkit-box-orient: vertical; word-break: keep-all;   }
-  
-  
+
+#mainslide .mySwiper .banner {  position: relative;}
   
 .communityboard   {  }
 .communityboard ul   {  }

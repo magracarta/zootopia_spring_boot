@@ -73,13 +73,13 @@
 		<nav class="navigation">
 			<ul>
 				<li>
-				<a href="zootopia.do?command=contestBoard&category=all&pagenum=1&search=">콘테스트</a>
+				<a href="contestlist?category=all&pagenum=1&search=">콘테스트</a>
 				<div class="submenuContainer">
 					<ul>
-						<li><a href="zootopia.do?command=contestBoard&category=all&pagenum=1&search=">All</a></li>
-						<li><a href="zootopia.do?command=contestBoard&category=playing&pagenum=1&search=">진행중인 콘테스트</a></li>
-						<li><a href="zootopia.do?command=contestBoard&category=accomplished&pagenum=1&search=">완료된 콘테스트</a></li>
-						<li><a href="zootopia.do?command=contestBoard&category=wating&pagenum=1&search=">대기중인 콘테스트</a></li>
+						<li><a href="contestlist?category=all&pagenum=1&search=">All</a></li>
+						<li><a href="contestlist?category=playing&pagenum=1&search=">진행중인 콘테스트</a></li>
+						<li><a href="contestlist?category=accomplished&pagenum=1&search=">완료된 콘테스트</a></li>
+						<li><a href="contestlist?category=wating&pagenum=1&search=">대기중인 콘테스트</a></li>
 					</ul>
 				</div>
 				</li>

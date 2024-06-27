@@ -1,10 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
-<html>
-<head>
-    <title>Title</title>
-    <meta charset="UTF-8">
-</head>
-<body>
-인덱스입니다.
-</body>
-</html>
+pageEncoding="UTF-8"%>
+<%@ include file ="./include/header.jsp" %>
+
+
+
+<%@ include file ="./include/footer.jsp" %>
+<%@ include file ="css/main_css.jsp" %>

@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+
 <style>
 .contest li a { width:100%; display:block; } 
 .contest .swiper-slide {  }
 .contest .swiper-slide img { width:100%; }
+
 
 
 .contest .title-wrapper { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom:60px; }
@@ -53,6 +53,9 @@
 .contest_container .contest_list .button-wrapper p.complete { color:#ddd; }
 .contest_container .contest_list .button-wrapper span {  }
 .contest_container .contest_list .button-wrapper a { border-radius:5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 margin-top:26px; width:auto; font-size:15px; color:#fff; background:#000; padding:11px 42px; }
 
 
