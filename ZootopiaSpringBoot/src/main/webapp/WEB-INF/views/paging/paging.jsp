@@ -1,23 +1,26 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<!-- 페이지네이션, 검색 -->
-<% String url = request.getParameter("url");
-   String search = request.getParameter("search");
-%>
-	<div class="pagenation-container">
-		<div class="prevBtn_wrap"></div>
-		<c:if test="${paging.prev == true &&  paging.pageAllcount > paging.pagecnt }">
-		<a class="prevBtn" href="<%=url%>&pagenum=${paging.firstnum-paging.pagecnt}"><img src="images/arrow.svg"></a>
+<c:url var="action" value="${param.address}" />
+<div class="row">
+	<div class="col" style="font-size:120%; font-weight:bold;">
+
+		<c:if test="${paging.prev}">
+			<a href="${action}?page=${paging.beginPage-1}">◀</a>&nbsp;
 		</c:if>
-		<div class="pagenation-wrapper">
-
-		</div>
-		<div class="nextBtn_wrap"></div>
-
-
+		<c:forEach begin="${paging.beginPage}" end="${paging.endPage}" var="index">
+			<c:if test="${index==paging.page}">
+				<span style="color:red">${index}&nbsp;</span>
+			</c:if>
+			<c:if test="${index!=paging.page}">
+				<a href="${action}?page=${index}">${index}&nbsp;</a>
+			</c:if>
+		</c:forEach>
+		<c:if test="${paging.next}">
+			&nbsp;<a href="${action}?page=${paging.endPage+1}">▶</a>&nbsp;
+		</c:if>
 	</div>
+</div><!-- 페이지의 끝 -->
 	
 	<div class="serach-form">
 		<form name="search" method="get">

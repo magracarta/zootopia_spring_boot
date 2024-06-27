@@ -1,11 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ include file="/header.jsp" %>
-<%@ include file="/community/css/community_css.jsp" %>
+<%@ include file="css/community_css.jsp" %>
+<script src="/script/community.js"></script>
+
+
 <article>
-    <form class="communityform" name="communityForm" action="zootopia.do?command=writeCommunity" method="post">
+    <form class="communityform" name="communityForm" action="writeCommunity" method="post">
 	    <div class="form"> 자유게시판 추가 </div>
 	    <div class="detail">
 	        <label class="writer">작성자</label>
@@ -29,13 +31,12 @@
 	        <textarea class="content" name="content" rows="10" cols="85"></textarea>
 	    </div>
 	    <div class="btn">
-	        <input class="button3" type="submit" onclick="return communityCreate()" value="작성완료">
-            <input class="button4" type="reset" value="작성취소" onclick="location.href='zootopia.do?command=communityBoard'">
+	        <input class="button3" type="submit" value="작성완료">
+            <input class="button4" type="reset" value="작성취소" onclick="location.href='communityBoard'">
 
 	    </div>
 	</form>
 </article>
 
-<%@ include file="/footer.jsp" %>
 
 
